@@ -1,0 +1,5 @@
+Download file and run file with .py extension through shell/command line etc. in python3
+Example:
+In linux - python3 download_images_by_url.py
+In windows - You have to navigate yourself to the file which contents python3 and from there type python download_images_by_url.py
+Enjoy :)
