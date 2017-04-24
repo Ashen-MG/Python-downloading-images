@@ -1,5 +1,5 @@
 import requests
-from bs4 import BeautifulSoup
+from html.parser import HTMLParser
 from urllib.parse import urlparse
 import os
 import urllib.request
@@ -7,6 +7,19 @@ import urllib.request
 x = 1
 y = 1
 z = 1
+
+
+# Finding links for download
+class LinkFinder(HTMLParser):
+
+    def handle_starttag(self, tag, attrs):
+        if tag == "img":
+            for (attribute, src) in attrs:
+                if attribute == "src":
+                    print(src)
+
+    def error(self, message):
+        pass
 
 
 #  Naming and downloading images
@@ -32,7 +45,8 @@ try:
     # URL
     url_input = input("Enter a url that you want to crawl: ").replace(" ", "")
     url = requests.get(url_input).text
-    soup = BeautifulSoup(url, "lxml")
+
+    finder = LinkFinder()
 
     url_parse_check = urlparse(url_input).netloc.split(".")
 
