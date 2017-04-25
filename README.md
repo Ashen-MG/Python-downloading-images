@@ -1,4 +1,4 @@
-<h1>Python 3 console program for downloading images by one url.</h1>
+<h1>Python 3 console program for downloading all images from one url.</h1>
 You will specify document where you want to save images and then specify url of the web page.
 <br>
 *Python 3 is required
